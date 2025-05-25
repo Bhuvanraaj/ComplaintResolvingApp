@@ -9,15 +9,5 @@ import java.util.List;
 
 @Service
 public class AdminService {
-    @Autowired
-    UserServiceFeign userServiceFeign;
 
-    public AdminService(UserServiceFeign userServiceFeign)
-    {
-        this.userServiceFeign=userServiceFeign;
-    }
-
-    public List<Object> viewComplaints(String status,String service) {
-        return userServiceFeign.getComplaints(status,service);
-    }
 }

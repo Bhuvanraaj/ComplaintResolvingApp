@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(name = "user-service",url = "http://localhost:8081/user/complaint")
+@FeignClient(name = "complaint-service",url = "http://localhost:8096")
 public interface UserServiceFeign {
 
-    @GetMapping("/view-complaints")
+    @GetMapping("/complaints/view")
     List<Object> getComplaints(@RequestParam String status,@RequestParam String service);
 
 }
