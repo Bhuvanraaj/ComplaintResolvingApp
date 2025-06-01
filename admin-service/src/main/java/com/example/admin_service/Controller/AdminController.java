@@ -6,6 +6,7 @@ import com.example.admin_service.FeignDealing.WorkerServiceFeign;
 import com.example.admin_service.Repository.AdminRepository;
 import com.example.admin_service.Service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -46,5 +47,13 @@ public class AdminController {
     public ResponseEntity<?> getWorkers(@RequestParam (required = false) String mail,@RequestParam(required = false) String type)
     {
         return new ResponseEntity<>(workerServiceFeign.getWorkers(mail,type),HttpStatus.OK);
+    }
+    @Value("${message}")
+    private String value;
+
+    @GetMapping("/getMessageValue")
+    public String message()
+    {
+        return value;
     }
 }
